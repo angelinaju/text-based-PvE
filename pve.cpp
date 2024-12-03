@@ -17,12 +17,12 @@ Player::Player(string name, int health) {
 }
 
 string Player::displayPlayerStats(){
-    return "Name: " + playerName + "\n" + "Health: " + to_string(playerHealth) + "\n";
+    return "Your Name: " + playerName + " Health: " + to_string(playerHealth) + "\n";
 }
 
 void Player::takePlayerDamage(int health){
     playerHealth -= health;
-    if (playerHealth < 0){
+    if (playerHealth <= 0){
         playerHealth = 0;
         isPlayerDead = true;
     } 
@@ -33,6 +33,7 @@ void Player::playerHeal(int hp){
     if (playerHealth > 100){
         playerHealth = 100;
     }
+    cout << "Your health is now " << playerHealth << ".\n";
 }
 
 map<string, int> Player::playerAttack(){
@@ -46,20 +47,12 @@ map<string, int> Player::playerAttack(){
 void Player::printAttacks(){
     map<string, int> attacks = playerAttack();
     map<string, int>::iterator it = attacks.begin(); // code from geeks4geeks
-
+    cout << "Available Attacks: ";
     while (it != attacks.end()){
-        cout << "Available Attacks: " << it->first  << ", ";
+        cout << it->first << " ";
         ++it;
     }
 }
-
-// bool Player::missPlayerAttack(){
-//     int randomValue = rand() % 7 + 1; // random function will miss an attack if it lands on the 1/7 chance
-//     if (randomValue == 4){ // fun fact 4 sounds really similar to death in Chinese
-//         return true;
-//     }
-//     return false;
-// }
 
 Monster::Monster(string name, int health){
     monsterName = name;
@@ -67,15 +60,16 @@ Monster::Monster(string name, int health){
 }
 
 string Monster::displayMonsterStats(){
-    return "Name: " + monsterName + "\n" + "Health: " + to_string(monsterHealth) + "\n";
+    return "Monster Name: " + monsterName + " Health: " + to_string(monsterHealth) + "\n";
 }
 
 void Monster::takeMonsterDamage(int hp){
     monsterHealth -= hp;
-    if (monsterHealth < 0){
+    if (monsterHealth <= 0){
         monsterHealth = 0;
         isMonsterDead = true;
     }
+    cout << "The " << monsterName << " is now at " << monsterHealth << " HP!\n\n";
 }
 
 map<string, int> Monster::slimeAttack(){

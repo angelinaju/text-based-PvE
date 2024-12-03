@@ -22,7 +22,6 @@ class Player {
         void playerHeal(int hp);
         map<string, int> playerAttack();
         void printAttacks();
-        bool missPlayerAttack();
         bool isPlayerDead = false;
        
 };
