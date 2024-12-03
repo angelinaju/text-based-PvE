@@ -1,0 +1,6 @@
+11/10/24: 6 - 7 pm (1 hour)
+    - wrote out more of the functions with basic ideas for what I want to do with each one in the header file
+    - I read a few geeks4geeks articles about how I could implement maps into my program, specifically with a name and number
+
+11/16/24: 8:00 - 10:45 pm (2.75 hr)
+    - 

@@ -17,7 +17,7 @@ class Player {
         
     public:
         Player(string name, int health);
-        void displayPlayerStats(string name, int health);
+        string displayPlayerStats();
         void takePlayerDamage(int hp);
         void playerHeal(int hp);
         map<string, int> playerAttack();
@@ -35,7 +35,7 @@ class Monster {
         
     public: 
         Monster(string name, int health);
-        string displayMonsterStats(string name, int health);
+        string displayMonsterStats();
         void takeMonsterDamage(int hp); 
         map<string, int> slimeAttack();
         map<string, int> zombieAttack();

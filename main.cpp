@@ -11,7 +11,7 @@ using namespace std;
 
 int main() {
     string name;
-    int currentMonster;
+    int currentMonster = 0;
     cout << "Welcome to Entity Clash! What is your name? ";
     cin >> name;
 
@@ -22,13 +22,13 @@ int main() {
 
     map<string, int> playerAttacks = player.playerAttack();
 
-    vector<pair<string, int>> attacks;
-    copy(playerAttacks.begin(), playerAttacks.end(), back_inserter(attacks));
+    vector<pair<string, int>> attacks; // convert the map into a vector to access by index
+    copy(playerAttacks.begin(), playerAttacks.end(), back_inserter(attacks)); // from geeks4geeks
 
     while (!(player.isPlayerDead) && currentMonster < 3){
 
         Monster& fight = monsters[currentMonster];
-        cout << "Get ready to face the " << fight.displayMonsterStats() << endl;
+        cout << "Get ready to fight!" << player.displayPlayerStats() << fight.displayMonsterStats() << endl;
 
         int action = 0;
         cout << "What would you like to do? Press (1) Attack or (2) Heal" << endl;
@@ -40,17 +40,21 @@ int main() {
             int atk;
             cout << "Which attack would you like to use? Press (1), (2), or (3)" << endl;
             cin >> atk;
+            atk += -1;
 
-            if (atk > 0 && atk <= 3){
-                const auto& selectedAttack = attacks[atk - 1];
+            if (atk = 0 && atk < 3){
+                const auto& selectedAttack = attacks[atk];
                 cout << "You used " << selectedAttack.first << " and dealt " << selectedAttack.second << " damage!" << endl;
                 fight.takeMonsterDamage(selectedAttack.second);
             } else {
                 cout << "Invalid attack! You forfeit your turn." << endl;
             }
 
-
-            
+        } else if (action == 2){
+            cout << "You have healed yourself for 10 health. " << endl;
+            player.playerHeal(10);
+        } else {
+            cout << "Invalid action! You forfeit your turn. " << endl;
         }
 
         return 0;

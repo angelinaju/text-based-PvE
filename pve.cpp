@@ -16,9 +16,8 @@ Player::Player(string name, int health) {
     playerHealth = health;
 }
 
-void Player::displayPlayerStats(string name, int health){
-    cout << "Name: " << playerName << endl;
-    cout << "Health: " << health << endl;
+string Player::displayPlayerStats(){
+    return "Name: " + playerName + "\n" + "Health: " + to_string(playerHealth) + "\n";
 }
 
 void Player::takePlayerDamage(int health){
@@ -62,9 +61,13 @@ void Player::printAttacks(){
 //     return false;
 // }
 
-string Monster::displayMonsterStats(string monsterName, int monsterHealth){
-    cout << "Name: " << monsterName << endl;
-    cout << "Health: " << monsterHealth << endl;
+Monster::Monster(string name, int health){
+    monsterName = name;
+    monsterHealth = health;
+}
+
+string Monster::displayMonsterStats(){
+    return "Name: " + monsterName + "\n" + "Health: " + to_string(monsterHealth) + "\n";
 }
 
 void Monster::takeMonsterDamage(int hp){
