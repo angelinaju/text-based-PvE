@@ -14,16 +14,17 @@ class Player {
     private:
         int playerHealth;
         string playerName;
-        bool isPlayerDead = false;
         
     public:
         Player(string name, int health);
         void displayPlayerStats(string name, int health);
         void takePlayerDamage(int hp);
+        void playerHeal(int hp);
         map<string, int> playerAttack();
+        void printAttacks();
         bool missPlayerAttack();
+        bool isPlayerDead = false;
        
- 
 };
 
 class Monster {
@@ -34,13 +35,14 @@ class Monster {
         
     public: 
         Monster(string name, int health);
-        void displayMonsterStats(string name, int health);
+        string displayMonsterStats(string name, int health);
         void takeMonsterDamage(int hp); 
         map<string, int> slimeAttack();
         map<string, int> zombieAttack();
         map<string, int> emrichAttack();
-        int missMonsterAttack();
-
+        void monsterAttack();
+        bool missMonsterAttack();
+        bool isMonsterDead = false;
 };
 
 
