@@ -34,7 +34,7 @@ void Player::takePlayerDamage(int health){
     } 
 }
 
-void Player::playerHeal(int hp){
+void Player::playerHeal(int hp){ // add however much hp is healed
     playerHealth += hp;
     cout << "Your health is now " << playerHealth << ".\n";
 }
@@ -51,7 +51,7 @@ void Player::printAttacks(){ // display the attacks
     map<string, int> attacks = playerAttack();
     map<string, int>::iterator it = attacks.begin(); // code from geeks4geeks
     cout << "Available Attacks: ";
-    while (it != attacks.end()){
+    while (it != attacks.end()){ // iterate through attacks but only print out the names
         cout << it->first << " ";
         ++it;
     }
@@ -64,11 +64,11 @@ bool Player::goMarket(){
     cin >> upgrade;
 
     if (upgrade == 'Y' || upgrade == 'y'){
-        if (playerGold >= 7){
+        if (playerGold >= 7){ // if the player has over 7 gold, they can buy
             cout << "You have successfully purchased the Steel Sword! Your damage will now be increased by 20%.\nSending you back to the monster's den..." << endl;
             playerGold -= 7;
             return true;
-        } else {
+        } else { // if they say yes to the upgrade but don't have enough gold
             cout << "Sorry, you don't have enough gold! Try again later.\nSending you back to the monster's den..." << endl;
             return false;
         }
@@ -88,7 +88,7 @@ string Monster::displayMonsterStats(){
 }
 
 void Monster::takeMonsterDamage(int hp){
-    monsterHealth -= hp;
+    monsterHealth -= hp; // subtract however much hp the attack caused
     if (monsterHealth <= 0){
         monsterHealth = 0;
         isMonsterDead = true;
@@ -114,9 +114,9 @@ map<string, int> Monster::zombieAttack(){ // list of zombie's attacks
 
 map<string, int> Monster::emrichAttack(){ // list of emrich's attacks
     map<string, int> attackList;
-    attackList["202 Lecture"] = 18;
+    attackList["202 Lecture"] = 20;
     attackList["Lab Due Friday"] = 25;
-    attackList["Assignment Graded"] = 35;
+    attackList["Assignment Graded"] = 37;
     return attackList;
 }
 
