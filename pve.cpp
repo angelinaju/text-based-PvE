@@ -30,17 +30,14 @@ void Player::takePlayerDamage(int health){
 
 void Player::playerHeal(int hp){
     playerHealth += hp;
-    if (playerHealth > 100){
-        playerHealth = 100;
-    }
     cout << "Your health is now " << playerHealth << ".\n";
 }
 
 map<string, int> Player::playerAttack(){
     map<string, int> attackList;
-    attackList["Sword Slash"] = 10;
-    attackList["Upper Slice"] = 15;
-    attackList["Whirlwind"] = 25;
+    attackList["Sword Slash"] = 18;
+    attackList["Upper Slice"] = 27;
+    attackList["Whirlwind"] = 34;
     return attackList;
 } 
 
@@ -82,7 +79,7 @@ map<string, int> Monster::slimeAttack(){
 
 map<string, int> Monster::zombieAttack(){
     map<string, int> attackList;
-    attackList["Fist Punch"] = 14;
+    attackList["Fist Punch"] = 12;
     attackList["High Jump"] = 18;
     attackList["Bite"] = 22;
     return attackList;
@@ -91,13 +88,13 @@ map<string, int> Monster::zombieAttack(){
 map<string, int> Monster::emrichAttack(){
     map<string, int> attackList;
     attackList["202 Lecture"] = 18;
-    attackList["Case Study"] = 25;
+    attackList["Lab Due Friday"] = 25;
     attackList["Assignment Graded"] = 35;
     return attackList;
 }
 
 bool Monster::missMonsterAttack(){
-    int randomValue = rand() % 7 + 1; // random function will miss an attack if it lands on the 1/7 chance
+    int randomValue = rand() % 5; // random function will miss an attack if it lands on the 1/5 chance
     if (randomValue == 4){ // fun fact 4 sounds really similar to death in Chinese
         return true;
     }

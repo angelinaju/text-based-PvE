@@ -19,18 +19,18 @@ int main() {
     cout << "Sorry for throwing you in so soon. Get ready to fight!\n\n";
 
     Player player(name, 100);
-    Monster monsters[] = {Monster("Slime", 100), Monster("Zombie", 165), Monster("Emrich", 250)};
+    Monster monsters[] = {Monster("Slime", 100), Monster("Zombie", 165), Monster("Emrich", 225)};
 
     map<string, int> playerAttacks = player.playerAttack();
     map<string, int> monsterattacks;
 
     vector<pair<string, int>> attacks; // convert the map into a vector to access by index
-    copy(playerAttacks.begin(), playerAttacks.end(), back_inserter(attacks)); // from geeks4geeks
-
-    Monster& fight = monsters[currentMonster];
-    vector<pair<string, int>> monsterMove;
+    copy(playerAttacks.begin(), playerAttacks.end(), back_inserter(attacks)); // from geeks4geeks & chatgpt
 
     while (!(player.isPlayerDead) && currentMonster < 3){
+        Monster& fight = monsters[currentMonster];
+        vector<pair<string, int>> monsterMove;
+
         if (currentMonster == 0){monsterattacks = fight.slimeAttack();} 
         else if (currentMonster == 1){monsterattacks = fight.zombieAttack();} 
         else {monsterattacks = fight.emrichAttack();}
@@ -74,10 +74,12 @@ int main() {
                 cout << "The monster used " << selectedATK.first << " and dealt " << selectedATK.second << " damage to you! " << endl;
                 player.takePlayerDamage(selectedATK.second);
             } else {
-                cout << "The monster missed the attack! You survive to see a few more minutes. " << endl;
+                cout << "The monster missed its attack! You survive to see a few more minutes. " << endl;
             }
         } else {
             cout << "Congratulations! You've defeated the monster." << endl;
+            cout << "You consumed the essence of the monster and have absorbed health." << endl;
+            player.playerHeal(100);
             currentMonster++;
             continue;
         }
