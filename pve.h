@@ -46,7 +46,4 @@ class Monster {
         bool isMonsterDead = false;
 };
 
-
-
-
 #endif

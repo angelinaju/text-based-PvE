@@ -12,6 +12,7 @@ using namespace std;
 int main() {
     string name;
     int currentMonster = 0;
+    bool hasSteelSword = false;
     cout << "Welcome to Entity Clash! What is your name? ";
     cin >> name;
 
@@ -36,7 +37,6 @@ int main() {
         
         cout << player.displayPlayerStats() << "\n" << fight.displayMonsterStats() << endl; // print out the current health stats
 
-        bool hasSteelSword = false;
         int action = 0;
         cout << "What would you like to do? Press (1) Attack or (2) Heal" << endl; // player has 2 options: attack or heal
         cin >> action;
@@ -50,9 +50,15 @@ int main() {
             atk += -1;
 
             if (atk >= 0 && atk < 3){ // depending on what number you input, use that attack on the monster
-                const auto& selectedAttack = attacks[atk];
-                cout << "You used " << selectedAttack.first << " and dealt " << selectedAttack.second << " damage!\n";
-                fight.takeMonsterDamage(selectedAttack.second);
+                const auto& selectedAttack = attacks[atk]; 
+                if (hasSteelSword){
+                    int modDMG = selectedAttack.second * 1.2; 
+                    cout << "You used " << selectedAttack.first << " and dealt " << modDMG << " damage!\n";
+                    fight.takeMonsterDamage(modDMG);
+                } else {
+                    cout << "You used " << selectedAttack.first << " and dealt " << selectedAttack.second << " damage!\n";
+                    fight.takeMonsterDamage(selectedAttack.second);
+                }
             } else {
                 cout << "Oh no, looks like you missed! You forfeit your turn." << endl; // any other input causes you to forfeit
             }
@@ -79,17 +85,20 @@ int main() {
             cout << "Congratulations! You've defeated the monster. You've also gained " << monsterGold << " gold." << endl;
             cout << "You consumed the essence of the monster and have absorbed health." << endl;
             
+            player.addGold(monsterGold);
             player.playerHeal(100);
             currentMonster++;
 
-            char market;
-            cout << "Would you like to go to the market to purchase a new weapon? Press (Y) for Yes and (N) for No. ";
-            cin >> market;
+            if (currentMonster < 3 && !hasSteelSword){
+                char market;
+                cout << "Would you like to go to the market to purchase a new weapon? Press (Y) for Yes and (N) for No. ";
+                cin >> market;
 
-            if (market == 'Y'){
-                hasSteelSword = player.goMarket();
-            } else {
-                cout << "You have skipped going to the market." << endl;
+                if (market == 'Y' || market == 'y'){
+                    hasSteelSword = player.goMarket();
+                } else {
+                    cout << "You have skipped going to the market." << endl;
+                }
             }
             continue;
         }

@@ -59,11 +59,11 @@ void Player::printAttacks(){ // display the attacks
 
 bool Player::goMarket(){
     char upgrade;
-    cout << "Welcome to the market! You currently have a Stone Sword." << endl;
+    cout << "\nWelcome to the market! You currently have a Stone Sword." << endl;
     cout << "Would you like to upgrade to a Steel Sword? This upgrade will cost you 7 gold.\nYou currently have " << playerGold << " gold.\nPress (Y) for Yes and (N) for No." << endl; 
     cin >> upgrade;
 
-    if (upgrade == 'Y'){
+    if (upgrade == 'Y' || upgrade == 'y'){
         if (playerGold >= 7){
             cout << "You have successfully purchased the Steel Sword! Your damage will now be increased by 20%.\nSending you back to the monster's den..." << endl;
             playerGold -= 7;
