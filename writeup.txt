@@ -1,0 +1,12 @@
+While working on this project, I realized that the functionality of the game loop turned out better than how I expected it. I was a bit confused at first on how to create the loop with different interactive features, 
+so I looked at some other game references for inspiration and ideas. I think I did a fairly decent job with my usage of classes and functions, as I was originally going to make a different class for each monster but 
+realized that I could combine them all into one. The implementation of Visual Studio Code and Github also allowed me to practice a bit with using the GitHub Desktop app.
+
+When I was trying to figure out how to access the map of player attacks, I didn't want the player to have to type out the full name of the move in order to make the move, as I thought pressing 1, 2, or 3 would be easier. 
+I was stuck on this issue for a little bit, but I eventually found some documentation on Geeks4Geeks that explained how to copy a map into a vector of pairs, which would allow me to access the key value pairs by index. 
+This allows the player to simply input 1, 2, or 3 as their choice and these numbers will correspond to a particular attack and damage number automatically. 
+
+I enjoyed learning how to properly use the GitHub Desktop app and seeing my progress on my GitHub account, as this is technically my first "from scratch" C++ project. I also learned about the basics of game development, 
+something I have been trying to start. While I know that my project is probably not as technically complex as others, I believe my implementation of maps & vectors and my attempts to make game logic slightly better through
+the randomness of monster attacks and gold drops are beneficial when it comes to my knowledge of how to create an entertaining, fair, and balanced game. I think being able to practice all of this has been incredibly helpful
+for my future in game development and programming. 

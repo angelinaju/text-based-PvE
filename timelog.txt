@@ -3,4 +3,16 @@
     - I read a few geeks4geeks articles about how I could implement maps into my program, specifically with a name and number
 
 11/16/24: 8:00 - 10:45 pm (2.75 hr)
-    - 
+    - wrote out the basic functions for player & monster attacks, implemented maps into the main.cpp
+
+11/23/24: 4:30 - 7:30 pm (3 hr)
+    - worked on game loop for the 3 monsters, adding display and fixing spacing and creating dialogue for each option in the game
+
+11/29/24: 9 - 10:30 (1.5 hr)
+    - bug fixing. also was confused about how to access the individual key-value pairs from the maps and I eventually found out about converting the map into a vector to access by index
+
+11/30/24: 8 - 9 pm (1 hr)
+    - more bug fixing, also added the market function as an addition for more difference in between the runs
+
+12/1/24: 9:30 - 10 pm (0.5 hr)
+    - commented code
